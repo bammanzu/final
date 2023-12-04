@@ -1,0 +1,67 @@
+1. 파일을 복사하는 프로그램 (c언어)
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+
+    FILE *s, *t;
+
+    char c;
+  
+    s = fopen(argv[1], "r"); 
+
+    t = fopen(argv[2], "w");
+
+    while ((c = fgetc(s)) != EOF)
+
+        fputc(c, t);
+  
+    fclose(s);
+  
+    fclose(t);
+  
+    return 0;
+}
+
+2.컴파일 하기 위한 과정
+
+Windows에서 Visual Studio를 열고 "Developer Command Prompt"를 선택하여 명령행 창을 엽니다.
+프로젝트를 저장할 새로운 폴더를 생성하고 해당 폴더로 이동합니다.
+mkdir anu
+cd anu
+선택한 텍스트 편집기를 사용하여 C 코드를 작성하고 mycp.c로 저장합니다.
+notepad mycp.c
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    FILE *s, *t;
+    char c;
+
+    s = fopen(argv[1], "r");
+    t = fopen(argv[2], "w");
+
+    while ((c = fgetc(s)) != EOF)
+        fputc(c, t);
+
+    fclose(s);
+    fclose(t);
+
+    return 0;
+}
+파일 형식: 모든 파일, 인코딩: ANSI
+로 저장
+
+명령행 창에서 다음 명령어를 사용하여 코드를 컴파일합니다.
+cl mycp.c
+컴파일이 완료되면 다음 명령어를 사용하여 프로그램을 실행합니다.
+mycp.exe f1.txt f2.txt
+여기서 f1.txt는 복사할 소스 파일의 이름이고, f2.txt는 대상 파일의 이름입니다.
+
+3.자가채점 
+  100점
+
+
+
+
+
+
